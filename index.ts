@@ -100,8 +100,8 @@ function draw() {
       }
       ctx.moveTo(495, 495);
       while (i > 5) {
-        ctx.lineTo(i, 485);
-        ctx.lineTo(i + 5, 495);
+        ctx.lineTo(485, i);
+        ctx.lineTo(495, i - 5);
         i -= 10;
       }
       ctx.stroke();
