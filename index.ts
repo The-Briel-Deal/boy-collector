@@ -6,8 +6,8 @@ SEXY_MAN.src =
   'https://image.shutterstock.com/shutterstock/photos/1162618336/display_1500/stock-photo-sexy-man-in-underwear-isolated-on-white-background-1162618336.jpg';
 
 const playerOnePosition = new Array<number>(2);
-let playerOneMovingRight = 0;
-let playerOneMovingDown = 0;
+let playerOneMovingRight = 1;
+let playerOneMovingDown = 1;
 playerOnePosition[0] = 1;
 playerOnePosition[1] = 1;
 
@@ -17,52 +17,14 @@ function draw() {
   ) as HTMLCanvasElement;
   if (canvas.getContext) {
     const ctx = canvas.getContext('2d');
-    function keyDownHandler(ev: KeyboardEvent) {
-      console.log(ev.key);
-      switch (ev.key) {
-        case 'w':
-          playerOneMovingDown = -1;
-          break;
-        case 'a':
-          playerOneMovingRight = -1;
-          break;
-        case 's':
-          playerOneMovingDown = 1;
-          break;
-        case 'd':
-          playerOneMovingRight = 1;
-          break;
-      }
-    }
-    function keyUpHandler(ev: KeyboardEvent) {
-      console.log(ev.key);
-      switch (ev.key) {
-        case 'w':
-          if (playerOneMovingDown == -1) {
-            playerOneMovingDown = 0;
-          }
-          break;
-        case 'a':
-          if (playerOneMovingRight == -1) {
-            playerOneMovingRight = 0;
-          }
-          break;
-        case 's':
-          if (playerOneMovingDown == 1) {
-            playerOneMovingDown = 0;
-          }
-          break;
-        case 'd':
-          if (playerOneMovingRight == 1) {
-            playerOneMovingRight = 0;
-          }
-          break;
-      }
-    }
-    window.addEventListener('keydown', keyDownHandler, false);
-    window.addEventListener('keyup', keyUpHandler, false);
-
     setInterval(() => {
+      //Bouncing!
+      if (playerOnePosition[0] > 285) {
+        playerOneMovingDown = -1;
+      }
+      if (playerOnePosition[1] > 350) {
+        playerOneMovingRight = -1;
+      }
       // Clearing screen
       ctx.clearRect(0, 0, 1000, 1000);
 
