@@ -105,9 +105,10 @@ function draw() {
         i -= 10;
       }
       ctx.moveTo(485, 5);
+      i = 495;
       while (i > 5) {
-        ctx.lineTo(485, i);
-        ctx.lineTo(495, i - 5);
+        ctx.lineTo(i, 10);
+        ctx.lineTo(i - 5, 20);
         i -= 10;
       }
       ctx.stroke();
