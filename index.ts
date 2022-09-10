@@ -98,7 +98,12 @@ function draw() {
         ctx.lineTo(i + 5, 495);
         i += 10;
       }
-
+      ctx.moveTo(495, 495);
+      while (i > 5) {
+        ctx.lineTo(i, 485);
+        ctx.lineTo(i + 5, 495);
+        i -= 10;
+      }
       ctx.stroke();
     }, 0.033);
   }
