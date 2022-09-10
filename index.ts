@@ -98,7 +98,13 @@ function draw() {
         ctx.lineTo(i + 5, 495);
         i += 10;
       }
-      ctx.moveTo(495, 495);
+      ctx.moveTo(495, 485);
+      while (i > 5) {
+        ctx.lineTo(485, i);
+        ctx.lineTo(495, i - 5);
+        i -= 10;
+      }
+      ctx.moveTo(485, 5);
       while (i > 5) {
         ctx.lineTo(485, i);
         ctx.lineTo(495, i - 5);
